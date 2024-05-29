@@ -36,7 +36,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/welcome';
 
     /**
      * Create a new controller instance.
@@ -73,7 +73,7 @@ class LoginController extends Controller
                 $this->guard()->attempt(
                     $this->credentials($request), $request->filled('remember')
                 );
-                return redirect()->intended('/home');
+                return redirect()->intended('/welcome');
             }
         }else{
             return false;

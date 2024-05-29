@@ -56,3 +56,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/home', 'Dashboard\DashboardController@index');
 Route::get('/home/show-manpow', 'Dashboard\DashboardController@showManPows');
 Route::get('/dashboard', 'Dashboard\DashboardController@index');
+Route::get('/welcome', 'Dashboard\DashboardController@welcome');
+

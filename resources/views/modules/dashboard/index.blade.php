@@ -5,12 +5,14 @@
 	<link rel="stylesheet" href="{{ asset('plugins/nanoscroll/nanoscroller.css') }}">
 	<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 	<link rel="stylesheet" href="{{ asset('css/projects.css') }}">
+	<link href="{{ asset('plugins/glide/jeffry.in.slider.css') }}" rel="stylesheet">
 @append
 
 @section('js')
 	<script src="{{ asset('plugins/tiny-slider/tiny-slider.js') }}"></script>
 	<script src="{{ asset('plugins/nanoscroll/jquery.nanoscroller.js') }}"></script>
 	<script src="{{ asset('plugins/chartjs/Chart.js') }}"></script>
+    <script src="{{ asset('plugins/glide/jquery.glide.min.js') }}"></script>
 @append
 
 @section('styles')
@@ -46,13 +48,35 @@
 @append
 
 @section('scripts')
-	
+<script type="text/javascript">
+	$('.slider').glide({
+		autoplay: 5000,
+		arrowsWrapperClass: 'slider-arrows',
+		arrowRightText: '',
+		arrowLeftText: ''
+	});
+</script>
 @append
 
 
 @section('content')
 	{{-- @include('modules.dashboard.widgets.slider') --}}
 	<div class="ui stackable equal width grid">
+		<div class="ui center aligned segment" style="padding:0; overflow:hidden; height:275px;">
+			<div class="slider slider1">
+				<div class="slides">
+					<div class="slide-item" style="position: relative">
+						<img title="example" class="image-preview center aligned" id="showAttachment" style="width: 100%;" src="https://img.floweradvisor.com/b/33ee0e02a453d58b2c8710c0b271737c.webp?v=20240510131001">
+					</div>
+					<div class="slide-item" style="position: relative">
+						<img title="example" class="image-preview center aligned" id="showAttachment" style="width: 100%;" src="https://img.floweradvisor.com/p/t/fa1a58f649ff48cb185a6b80d600ac33.webp?v=20231207165727">
+					</div>
+					<div class="slide-item" style="position: relative">
+						<img title="example" class="image-preview center aligned" id="showAttachment" style="width: 100%;" src="https://img.floweradvisor.com/b/b56fc3dfa52402db936a44ab4af02515.webp?v=20240307180122">
+					</div>
+				</div>
+			</div>
+		</div>
 		<div class="sixteen wide column">
 			<div class="ui four stackable cards">
 				<div class="ui orange card">
@@ -64,7 +88,7 @@
 						<div class="ui two mini statistics">
 							<div class="ui blue statistic">
 								<div class="value">
-									<a href="{{ url('/monitoring/visitor') }}">{{ $visitor }}</a>
+									<a href="{{ url('/monitoring/visitor') }}">10</a>
 								</div>
 								<div class="label">
 									<i class="mini">Visitor</i>
@@ -72,184 +96,90 @@
 							</div>
 							<div class="ui yellow statistic">
 								<div class="value">
-									<a href="{{ url('/monitoring/whises') }}">{{ $wishes }}</a>
+									<a href="{{ url('/monitoring/whises') }}">30</a>
 								</div>
 								<div class="label">
-									<i class="mini">Wishes</i>
+									<i class="mini">Comment</i>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="ui blue card">
+				<div class="ui orange card">
 					<div class="content">
-						<i class="right floated envelope outline large blue icon"></i>
-						<div class="header">RSVP</div>
-					</div>
-					<div class="extra content center aligned padded">
-						<div class="ui three mini statistics">
-							<div class="ui blue statistic">
-								<div class="value">
-									<a href="{{ url('/monitoring/resv') }}">{{ $resv_hadir }}</a>
-								</div>
-								<div class="label">
-									<i class="mini">Hadir</i>
-								</div>
-							</div>
-							<div class="ui yellow statistic">
-								<div class="value">
-									<a href="{{ url('/monitoring/resv') }}">{{ $resv_ragu }}</a>
-								</div>
-								<div class="label">
-									<i class="mini">Ragu</i>
-								</div>
-							</div>
-							<div class="ui red statistic">
-								<div class="value">
-									<a href="{{ url('/monitoring/resv') }}">{{ $resv_tidak }}</a>
-								</div>
-								<div class="label">
-									<i class="mini">Tidak Hadir</i>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="ui yellow card">
-					<div class="content">
-						<i class="right floated address book outline large yellow icon"></i>
-						<div class="header">Tamu Undangan</div>
+						<i class="right floated chart line large orange icon"></i>
+						<div class="header">Monitoring</div>
 					</div>
 					<div class="extra content center aligned padded">
 						<div class="ui two mini statistics">
 							<div class="ui blue statistic">
 								<div class="value">
-									<a href="{{ url('/invitation/digital') }}">{{ $digital }}</a>
+									<a href="{{ url('/monitoring/visitor') }}">10</a>
 								</div>
 								<div class="label">
-									<i class="mini">Male</i>
+									<i class="mini">Visitor</i>
 								</div>
 							</div>
 							<div class="ui yellow statistic">
 								<div class="value">
-									<a href="{{ url('/invitation/digital') }}">{{ $fisik }}</a>
+									<a href="{{ url('/monitoring/whises') }}">30</a>
 								</div>
 								<div class="label">
-									<i class="mini">Female</i>
+									<i class="mini">Comment</i>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="ui red card">
+				<div class="ui orange card">
 					<div class="content">
-						<i class="right floated archive large red icon"></i>
-						<div class="header">Other</div>
+						<i class="right floated chart line large orange icon"></i>
+						<div class="header">Monitoring</div>
 					</div>
 					<div class="extra content center aligned padded">
-						<div class="ui three mini statistics">
+						<div class="ui two mini statistics">
 							<div class="ui blue statistic">
 								<div class="value">
-									<a href="{{ url('/monitoring/gift') }}">{{ $gift }}</a>
+									<a href="{{ url('/monitoring/visitor') }}">10</a>
 								</div>
 								<div class="label">
-									<i class="mini">Gift</i>
+									<i class="mini">Visitor</i>
 								</div>
 							</div>
 							<div class="ui yellow statistic">
 								<div class="value">
-									<a href="{{ url('/planning/seserahan-list') }}">{{ $seserahan }}</a>
+									<a href="{{ url('/monitoring/whises') }}">30</a>
 								</div>
 								<div class="label">
-									<i class="mini">Seserahan</i>
-								</div>
-							</div>
-							<div class="ui red statistic">
-								<div class="value">
-									<a href="{{ url('/undangan/prewedding') }}">{{ $prewed }}</a>
-								</div>
-								<div class="label">
-									<i class="mini">Prewedding</i>
+									<i class="mini">Comment</i>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="eight wide column">
-			<div class="ui segment" style="max-height: 368px;overflow-y: scroll;">
-				<h3>List Seserahan</h3>
-				<table class="ui celled unstackable table">
-					<thead>
-						<tr>
-							<th width="30%">List</th>
-							<th width="35%">Budget</th>
-							<th width="35%">Status</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach ($seserahan_list as $item)
-							<tr>
-								<td>{{ $item->name }}</td>
-								<td>Rp. {{ number_format($item->real_budget, 0, '', '.') }}</td>
-								<td>{!! $item->statusLabel() !!}</td>
-							</tr>
-						@endforeach
-					</tbody>
-				</table>
-			</div>
-		</div>
-		<div class="eight wide column">
-			<div class="ui segment">
-				<h3>Detail Acara</h3>
-				<div class="ui celled list">
-					<div class="item">
-						<div class="content">
-						<div class="header">Nama Pengantin</div>
-						{{ $acara->cpp }} & {{ $acara->cpw }}
-						</div>
+				<div class="ui orange card">
+					<div class="content">
+						<i class="right floated chart line large orange icon"></i>
+						<div class="header">Monitoring</div>
 					</div>
-					<div class="item">
-						<div class="content">
-						<div class="header">Tanggal Menikah</div>
-						{{ $acara->wedding_date ? Helpers::DateToStringWtime($acara->wedding_date):'' }}
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-						<div class="header">Lokasi</div>
-						{{ $acara->alamat }} {{ $acara->kelurahan }} {{ $acara->kecamatan }} {{ $acara->kota }} {{ $acara->provinsi }}
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-						<div class="header">Maps</div>
-						<a href="{{ $acara->lokasi_maps }}" target="_blank" rel="noopener noreferrer">{{ $acara->lokasi_maps }}</a>
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-						<div class="header">Informasi Calon Pengantin Pria</div>
-						{{ $acara->status_cpp }} dari Bpk {{ $acara->bpk_cpp }} dan Ibu {{ $acara->ibu_cpp }}
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-						<div class="header">Informasi Calon Pengantin Wanita</div>
-						{{ $acara->status_cpw }} dari Bpk {{ $acara->bpk_cpw }} dan Ibu {{ $acara->ibu_cpw }}
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-						<div class="header">Quotes</div>
-						{{ $acara->title_quotes }} <br> {{ $acara->quotes }}
-						</div>
-					</div>
-					<div class="item">
-						<div class="content">
-						<div class="header">No. Rekening</div>
-						{{ $acara->no_rek }} ({{ $acara->bank }}) <br>{{ $acara->no_rek_2 }} ({{ $acara->bank_2 }})
+					<div class="extra content center aligned padded">
+						<div class="ui two mini statistics">
+							<div class="ui blue statistic">
+								<div class="value">
+									<a href="{{ url('/monitoring/visitor') }}">10</a>
+								</div>
+								<div class="label">
+									<i class="mini">Visitor</i>
+								</div>
+							</div>
+							<div class="ui yellow statistic">
+								<div class="value">
+									<a href="{{ url('/monitoring/whises') }}">30</a>
+								</div>
+								<div class="label">
+									<i class="mini">Comment</i>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -257,30 +187,21 @@
 		</div>
 		<div class="sixteen wide column">
 			<div class="ui segment">
-				<a href="{{ url('/planning/budget-list') }}"><h3>List Wedding</h3></a>
-				<table class="ui celled unstackable table">
-					<thead>
-						<tr>
-							<th width="30%">List</th>
-							<th width="35%">DP</th>
-							<th width="35%">Debt</th>
-						</tr>
-					</thead>
-					<tbody>
-						@foreach ($wedding_list as $item)
-							<tr>
-								<td>{{ $item->name }}</td>
-								<td>Rp. {{ number_format($item->dp, 0, '', '.') }}</td>
-								<td>Rp. {{ number_format($item->debt, 0, '', '.') }}</td>
-							</tr>
-						@endforeach
-						<tr>
-							<td><b>TOTAL</b></td>
-							<td><b>Rp. {{ number_format($wedding_list->sum('dp'), 0, '', '.') }}</b></td>
-							<td><b>Rp. {{ number_format($wedding_list->sum('debt'), 0, '', '.') }}</b></td>
-						</tr>
-					</tbody>
-				</table>
+				<h2 class="ui icon header">
+					<a href="https://www.floweradvisor.com.ph/flowersphilippines" target="_blank" rel="noopener noreferrer">
+						<img src="https://aldmic.com/images/flower-advisor-logo.png" class="image" style="width:16em">
+					</a>
+					<div class="content">
+						<div class="sub header">Flowers are the perfect gift for any occasion or celebration. 
+							Each color of a flower holds its own special meaning and symbolism. 
+							At FlowerAdvisor, we make it easy for you to send flowers to Philippines and bridge the distances between you and your loved ones. 
+							You can conveniently order flowers online and enjoy same-day flower delivery in Philippines from FlowerAdvisor. 
+							Our wide selection includes roses, lilies, gerberas, orchids, gladiolus, and carnations, among others. 
+							The exquisite beauty of flowers is certain to warm the heart of the recipient on special days like birthdays, 
+							anniversaries, Valentine's Day, Mother's Day, and more. Our expert florists design stunning flower 
+							arrangements and bouquets that are guaranteed to add joy to any occasion.</div>
+					</div>
+				</h2>
 			</div>
 		</div>
 	</div>

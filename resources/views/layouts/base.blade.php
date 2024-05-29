@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>{{ config('app.name') }}</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <link rel="shortcut icon" type="image/png" href="{{ asset('img/asset-new/logo.png') }}">
+    <link rel="shortcut icon" type="image/png" href="https://www.floweradvisor.com.ph/favicon.ico">
     {{-- Style --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('semantic/semantic.css') }}">
     <link rel="stylesheet" href="{{ asset('plugins/sweetalert/sweetalert2.min.css') }}">
@@ -71,7 +71,9 @@
         <footer class="ui vertical footer fixed segment" style="background-color: black !important;">
             <div class="ui grid blue">
                 <div class="ui sixteen wide column center aligned">
-                    <span><i>Copyright &copy; www.chodho.com 2024 All Rights Reserved</i></span>
+                    <a href="https://www.floweradvisor.com.ph" target="_blank">
+                        <span><i>Copyright &copy; 2024 All Rights Reserved</i></span>
+                    </a>
                 </div>
             </div>
         </footer>

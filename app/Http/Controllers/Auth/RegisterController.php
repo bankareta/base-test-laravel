@@ -55,20 +55,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $id = isset($data['id']) ? $data['id'] : null;
         return Validator::make($data, [
-            'email'           => 'required|email',
-            'username'        => 'required|string|max:255',
+            'email' => 'required|email|unique:sys_users,email,'.$id,
+            'username' => 'required|string|max:255|unique:sys_users,username,'.$id,
             'password'        => 'required|string|min:6|confirmed',
-            'nama'            => 'required',
             'captcha'         => 'required|captcha_check',
         ], [
             'email.required'    => 'Alamat email harus diisi.',
+            'email.unique'    => 'Alamat email sudah ada.',
             'email.email'       => 'Format alamat email tidak valid.',
             'username.required' => 'Username harus diisi.',
+            'username.unique' => 'Username sudah ada.',
             'password.required' => 'Password harus diisi.',
             'password.min'      => 'Password minimal harus :min karakter.',
             'password.confirmed'=> 'Konfirmasi password tidak cocok.',
-            'nama.required'     => 'Nama harus diisi.',
             'captcha.required'  => 'Captcha harus diisi.',
             'captcha.captcha_check'   => 'Captcha tidak valid.',
         ]);
@@ -88,32 +89,16 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
-        dd('asu');
         $user =  User::create([
+            'fullname'   => $data['fullname'],
             'username'   => $data['username'],
+            'email'      => $data['email'],
             'last_login' => date('Y-m-d H:i:s'),
             'password'   => bcrypt($data['password']),
-            'email'      => $data['email'],
+            'status'      => 1,
         ]);
         
-        $user->roles()->attach(Role::where('name', 'user')->first());
-        
-        $user->karyawan()->create([
-            'nik'         => $data['nik'],
-            'nama'        => $data['nama'],
-            'tgl_lahir'   => Carbon::createFromFormat('d/m/Y', $data['birth_date'])->format('Y-m-d'),
-            'tmp_lahir'   => $data['tmp_lahir'],
-            'jk'          => $data['gender'],
-            'jabatan'     => $data['jabatan'],
-            'no_hp'       => $data['phone'],
-            'no_npwp'     => $data['npwp'],
-            'no_rekening' => $data['no_rekening'],
-            'atas_nama'   => $data['atas_nama'],
-            'tgl_masuk'   => date('Y-m-d'),
-            'tgl_keluar'  => null,
-            'status'      => $data['status'],
-        ]);
-
+        $user->roles()->attach(Role::where('name', 'Administrator')->first());
         return $user;
     }
 }

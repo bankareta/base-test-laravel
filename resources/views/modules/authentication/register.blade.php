@@ -31,17 +31,28 @@
                     <div class="sixteen wide column">
                         {{-- @if (count($errors) > 0) --}}
                         <div class="ui negative message" style="display: none;">
-                            <i class="close icon"></i>
+                            {{-- <i class="close icon"></i> --}}
                             <div class="header">
                                 <strong>Mohon Maaf, </strong>Terjadi Kesalahan<br>
                             </div>
                             <ul class="ui left aligned" style="text-align: left;">
-                                @foreach ($errors->all() as $error)
+                                {{-- @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
-                                @endforeach
+                                @endforeach --}}
                             </ul>
                         </div>
                         {{-- @endif --}}
+                        <div class="two fields">
+                            <div class="five wide field">
+                                <label for="nama" style="text-align: left;">Fullname</label>
+                            </div>
+                            <div class="eleven wide field">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                    <input type="text"  placeholder="Fullname" name="fullname" value="{{ old('fullname') }}">
+                                </div>
+                            </div>
+                        </div>
                         <div class="two fields">
                             <div class="five wide field">
                                 <label for="nama" style="text-align: left;">Username</label>
@@ -112,7 +123,7 @@
 
 @section('scripts')
 <script type="text/javascript">
-    // disable enter submit form
+     // disable enter submit form
     // $(document).on('keyup keypress', 'input', function(e) {
     //   if(e.which == 13) {
     //     console.log('tada..')
@@ -166,23 +177,6 @@
         }
     })
 
-    // $(document).on('input', 'input[name="phone"]', function(e){
-    //     var x = `<div class="ui basic red pointing prompt label transition visible">Panjang Number harus benar </div>`;
-    //     var d = `<div class="ui basic red pointing prompt label transition visible"> Karakter harus number</div>`;
-    //     if ($.isNumeric(this.value))
-    //     {
-    //         if (this.value.length != 10) {
-
-    //             $('#tampil-alert-phone').html(x);
-
-    //         }else{
-    //             $('#tampil-alert-phone').html('');
-    //         }
-    //     }else{
-    //         $('#tampil-alert-phone').html(d);
-    //     }
-    // })
-
     $(document).on('click', '.ui.file.input input:text, .ui.button', function (e) {
         $(e.target).parent().find('input:file').click();
     });
@@ -221,6 +215,7 @@
                 $('.ui.negative.message').find('ul').html('')
                 $("#dataForm").ajaxSubmit({
                     success: function(resp){
+                        console.log(resp);
                         location.href = '{{ url('/login') }}'
                     },
                     error: function(resp){

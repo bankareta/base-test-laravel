@@ -1,6 +1,6 @@
 <div class="ui fixed blue menu" style="background-color: #000000 !important;">
     <a href="{{ url('/home') }}" class="header item" style="letter-spacing: 0px; color: #fff !important">
-        <img class="logo" src="{{ asset('img/asset-new/logo.png') }}">&nbsp;&nbsp;
+        <img class="logo" src="https://www.floweradvisor.com.ph/favicon.ico">&nbsp;&nbsp;
         {{ config('app.name') }}
     </a>
     <div class="menu">
@@ -39,7 +39,8 @@
                 </div>
                 <i class="dropdown icon"></i>
                 <div class="menu transition hidden" tabindex="-1">
-                    <a class="item" href="{{ url('/profile') }}"><i class="user icon"></i> Profile</a>
+                    {{-- <a class="item" href="{{ url('/profile') }}"><i class="user icon"></i> Profile</a> --}}
+                    <a class="item" href="{{ url('/welcome') }}"><i class="home icon"></i> Home</a>
                     <a class="item" href="{{ url('/logout') }}"><i class="sign out icon"></i> Logout</a>
                 </div>
             </div>

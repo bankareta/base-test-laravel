@@ -14,14 +14,7 @@ class PermissionSeeder extends Seeder
      */
     public function run()
     {
-  		// Reset cached roles and permissions
   		app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
-
-    	// create permissions
-        // DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        // DB::table('role_has_permissions')->truncate();
-        // DB::table('permissions')->truncate();
-        // DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
       	$permissions = [
         		// ------------- DASHBOARD ---------------
@@ -29,12 +22,6 @@ class PermissionSeeder extends Seeder
     				'name'         => 'dashboard',
     				// 'guard_name' => 'Dashboard',
     				'action'       => ['view'],
-        		],
-        		// ------------- MASTER ---------------
-        		[
-    				'name'         => 'master-pegawai',
-    				// 'guard_name' => 'Pegawai',
-    				'action'       => ['view', 'add', 'edit', 'delete'],
         		],
         		// ------------- Konfigurasi ---------------
         		[
