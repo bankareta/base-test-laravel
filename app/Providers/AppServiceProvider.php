@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Carbon;
 use Schema;
 use Illuminate\Database\Eloquent\Relations\Relation;
+use Mews\Captcha\Captcha;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,13 +21,15 @@ class AppServiceProvider extends ServiceProvider
         setlocale(LC_ALL, env('APP_LOCALE', 'en'));
         Carbon::setLocale(env('APP_LOCALE', 'en'));
         Schema::defaultStringLength(191); //191
-        Relation::morphMap([
-            'inspection_record' => 'App\Models\Inspection\InspectionVisit',
-            'accident' => 'App\Models\Accident\Report',
-            'hira' => 'App\Models\Hira\Hira',
-            'hnmr' => 'App\Models\Hnmr\Reporting', 
-            'equipment' => 'App\Models\Equipment\Equipment', 
-        ]);
+
+        Validator::extend('captcha_check', function ($attribute, $value, $parameters, $validator) {
+            return Captcha::check($value);
+        });
+    
+        Validator::replacer('captcha_check', function ($message, $attribute, $rule, $parameters) {
+            return str_replace(':attribute', $attribute, ':attribute tidak cocok.');
+        });
+    }
     }
 
     /**

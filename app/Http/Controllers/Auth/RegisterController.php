@@ -60,7 +60,7 @@ class RegisterController extends Controller
             'username'        => 'required|string|max:255',
             'password'        => 'required|string|min:6|confirmed',
             'nama'            => 'required',
-            'captcha'         => 'required|captcha',
+            'captcha'         => 'required|captcha_check',
         ], [
             'email.required'    => 'Alamat email harus diisi.',
             'email.email'       => 'Format alamat email tidak valid.',
@@ -70,7 +70,7 @@ class RegisterController extends Controller
             'password.confirmed'=> 'Konfirmasi password tidak cocok.',
             'nama.required'     => 'Nama harus diisi.',
             'captcha.required'  => 'Captcha harus diisi.',
-            'captcha.captcha'   => 'Captcha tidak valid.',
+            'captcha.captcha_check'   => 'Captcha tidak valid.',
         ]);
     }
 
