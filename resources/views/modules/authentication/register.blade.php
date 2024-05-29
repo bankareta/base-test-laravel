@@ -87,12 +87,12 @@
                             </div>
                         </div>
                         <div class="field">
-                            <label for="captcha">Captcha</label>
                             <div>
                                 <img src="{!! captcha_src('flat') !!}" alt="captcha" id="captcha-image">
+                                <br>
                                 <button type="button" id="reload-captcha">Reload</button>
                             </div>
-                            <input type="text" id="captcha" name="captcha">
+                            <input type="text" id="captcha" name="captcha" placeholder="Captcha">
                         </div>
                     </div>
                 </div>
