@@ -16,32 +16,20 @@
 @section('content')
 <div class="ui middle aligned center aligned grid">
     <div class="eight wide column content">
-        <h2 class="ui red image header">
-            <a href="https://www.floweradvisor.com.ph/flowersphilippines" target="_blank" rel="noopener noreferrer">
-                <img src="https://aldmic.com/images/flower-advisor-logo.png" class="image" style="width:16em">
-            </a>
-            {{-- <div class="content">
-                <i>{{ config('app.name') }}</i>
-            </div> --}}
-        </h2>
         <form class="ui form" id="dataForm" method="POST" action="{{ url('/register') }}">
             {!! csrf_field() !!}
             <div class="ui top attached segment">
                 <div class="ui grid">
                     <div class="sixteen wide column">
-                        {{-- @if (count($errors) > 0) --}}
-                        <div class="ui negative message" style="display: none;">
-                            {{-- <i class="close icon"></i> --}}
-                            <div class="header">
-                                <strong>Mohon Maaf, </strong>Terjadi Kesalahan<br>
-                            </div>
-                            <ul class="ui left aligned" style="text-align: left;">
-                                {{-- @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach --}}
-                            </ul>
+                        <div class="ui header">
+                            <a href="https://www.floweradvisor.com.ph/flowersphilippines" target="_blank" rel="noopener noreferrer">
+                                <img src="https://aldmic.com/images/flower-advisor-logo.png" class="image" style="padding: 80px 0px 0px 0px;width:16em;">
+                            </a>
+                            {{-- <div class="content">
+                                <i>{{ config('app.name') }}</i>
+                            </div> --}}
                         </div>
-                        {{-- @endif --}}
+                        <div class="ui divider"></div>
                         <div class="two fields">
                             <div class="five wide field">
                                 <label for="nama" style="text-align: left;">Fullname</label>
@@ -105,6 +93,19 @@
                             </div>
                             <input type="text" id="captcha" name="captcha" placeholder="Captcha">
                         </div>
+                        {{-- @if (count($errors) > 0) --}}
+                        <div class="ui negative message" style="display: none;">
+                            {{-- <i class="close icon"></i> --}}
+                            <div class="header">
+                                <strong>Mohon Maaf, </strong>Terjadi Kesalahan<br>
+                            </div>
+                            <ul class="ui left aligned" style="text-align: left;">
+                                {{-- @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach --}}
+                            </ul>
+                        </div>
+                        {{-- @endif --}}
                     </div>
                 </div>
             </div>
