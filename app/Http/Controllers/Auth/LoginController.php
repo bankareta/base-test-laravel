@@ -55,7 +55,7 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
-        $user = User::where('username', $request->username)->first();
+        $user = User::where('username', $request->username)->orwhere('email', $request->username)->first();
         if($user)
         {
             if($user->last_activity != NULL && !Carbon::parse($user->last_activity)->addHours(2)->isPast())
@@ -83,7 +83,7 @@ class LoginController extends Controller
 
     public function sendFailedLoginResponse(Request $request)
     {
-        $user = User::where('username', $request->username)->where('position', 0)->first();
+        $user = User::where('username', $request->username)->orwhere('email', $request->username)->first();
         if($user)
         {
             if($user->last_activity != NULL && !Carbon::parse($user->last_activity)->addHours(2)->isPast())

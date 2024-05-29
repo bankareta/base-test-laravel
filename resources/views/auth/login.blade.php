@@ -34,8 +34,8 @@
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
-                        <input id="username" type="username" placeholder="Username" class="form-control" name="username" value="{{ old('username') }}" required autofocus
-                        oninvalid="this.setCustomValidity('Please Enter Your Username')" oninput="setCustomValidity('')">
+                        <input id="username" type="username" placeholder="Username / Email" class="form-control" name="username" value="{{ old('username') }}" required autofocus
+                        oninvalid="this.setCustomValidity('Please Enter Your Username or Email')" oninput="setCustomValidity('')">
                     </div>
                 </div>
                 <div class="field">
