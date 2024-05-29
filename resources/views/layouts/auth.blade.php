@@ -134,7 +134,7 @@
             fetch('/reload-captcha')
                 .then(response => response.json())
                 .then(data => {
-                    document.querySelector('img[alt="captcha"]').src = data.captcha;
+                    document.getElementById('captcha-image').src = data.captcha;
                 });
         };
     </script>
