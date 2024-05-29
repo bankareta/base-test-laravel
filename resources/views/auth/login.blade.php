@@ -47,7 +47,7 @@
                 <div class="field">
                     <label for="captcha">Captcha</label>
                     <div>
-                        <img src="{{ captcha_src('flat') }}" alt="captcha" id="captcha-image">
+                        <img src="{!! captcha_src('flat') !!}" alt="captcha" id="captcha-image">
                         <button type="button" id="reload-captcha">Reload</button>
                     </div>
                     <input type="text" id="captcha" name="captcha">
