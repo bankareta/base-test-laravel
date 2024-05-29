@@ -15,5 +15,4 @@ composer.lock
 /public/backup
 /app/Http/Auth/LoginController.php
 app/Http/Controllers/Auth/LoginController.php
-composer.json
 composer.lock
