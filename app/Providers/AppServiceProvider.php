@@ -16,14 +16,14 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Captcha $captcha)
     {
         setlocale(LC_ALL, env('APP_LOCALE', 'en'));
         Carbon::setLocale(env('APP_LOCALE', 'en'));
         Schema::defaultStringLength(191); //191
 
-        Validator::extend('captcha_check', function ($attribute, $value, $parameters, $validator) {
-            return Captcha::check($value);
+        Validator::extend('captcha_check', function ($attribute, $value, $parameters, $validator) use ($captcha) {
+            return $captcha->check($value);
         });
     
         Validator::replacer('captcha_check', function ($message, $attribute, $rule, $parameters) {
