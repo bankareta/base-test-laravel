@@ -36,9 +36,9 @@
                                 <strong>Mohon Maaf, </strong>Terjadi Kesalahan<br>
                             </div>
                             <ul class="ui left aligned" style="text-align: left;">
-                                {{-- @foreach ($errors->all() as $error)
+                                @foreach ($errors->all() as $error)
                                 <li>{{ $error }}</li>
-                                @endforeach --}}
+                                @endforeach
                             </ul>
                         </div>
                         {{-- @endif --}}

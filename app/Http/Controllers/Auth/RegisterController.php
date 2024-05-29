@@ -59,8 +59,18 @@ class RegisterController extends Controller
             'email'           => 'required|email',
             'username'        => 'required|string|max:255',
             'password'        => 'required|string|min:6|confirmed',
-            'username_trello' => ['required', new TrelloCheckUser],
             'nama'            => 'required',
+            'captcha'         => 'required|captcha',
+        ], [
+            'email.required'    => 'Alamat email harus diisi.',
+            'email.email'       => 'Format alamat email tidak valid.',
+            'username.required' => 'Username harus diisi.',
+            'password.required' => 'Password harus diisi.',
+            'password.min'      => 'Password minimal harus :min karakter.',
+            'password.confirmed'=> 'Konfirmasi password tidak cocok.',
+            'nama.required'     => 'Nama harus diisi.',
+            'captcha.required'  => 'Captcha harus diisi.',
+            'captcha.captcha'   => 'Captcha tidak valid.',
         ]);
     }
 
@@ -78,6 +88,7 @@ class RegisterController extends Controller
 
     protected function create(array $data)
     {
+        dd('asu');
         $user =  User::create([
             'username'   => $data['username'],
             'last_login' => date('Y-m-d H:i:s'),
