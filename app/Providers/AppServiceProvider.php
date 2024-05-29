@@ -30,7 +30,6 @@ class AppServiceProvider extends ServiceProvider
             return str_replace(':attribute', $attribute, ':attribute tidak cocok.');
         });
     }
-    }
 
     /**
      * Register any application services.
