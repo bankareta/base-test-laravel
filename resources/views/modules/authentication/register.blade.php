@@ -30,6 +30,19 @@
                             </div> --}}
                         </div>
                         <div class="ui divider"></div>
+                        {{-- @if (count($errors) > 0) --}}
+                        <div class="ui negative message" style="display: none;">
+                            {{-- <i class="close icon"></i> --}}
+                            <div class="header">
+                                <strong>Mohon Maaf, </strong>Terjadi Kesalahan<br>
+                            </div>
+                            <ul class="ui left aligned" style="text-align: left;">
+                                {{-- @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach --}}
+                            </ul>
+                        </div>
+                        {{-- @endif --}}
                         <div class="two fields">
                             <div class="five wide field">
                                 <label for="nama" style="text-align: left;">Fullname</label>
@@ -93,19 +106,6 @@
                             </div>
                             <input type="text" id="captcha" name="captcha" placeholder="Captcha">
                         </div>
-                        {{-- @if (count($errors) > 0) --}}
-                        <div class="ui negative message" style="display: none;">
-                            {{-- <i class="close icon"></i> --}}
-                            <div class="header">
-                                <strong>Mohon Maaf, </strong>Terjadi Kesalahan<br>
-                            </div>
-                            <ul class="ui left aligned" style="text-align: left;">
-                                {{-- @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                                @endforeach --}}
-                            </ul>
-                        </div>
-                        {{-- @endif --}}
                     </div>
                 </div>
             </div>
