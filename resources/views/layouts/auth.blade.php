@@ -134,9 +134,11 @@
             fetch('/reload-captcha')
                 .then(response => response.json())
                 .then(data => {
-                    // Menghapus tanda kutip ganda dari tepi luar URL
-                    var captchaSrc = data.captcha.replace(/^"|"$/g, '');
-                    document.getElementById('captcha-image').src = captchaSrc.src;
+                    var tempElement = document.createElement('div');
+                    tempElement.innerHTML = data.captcha;
+                    var imgElement = tempElement.querySelector('img');
+                    var captchaSrc = imgElement.getAttribute('src');
+                    document.getElementById('captcha-image').src = captchaSrc;
                 });
         };
     </script>
