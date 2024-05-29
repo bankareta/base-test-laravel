@@ -1,0 +1,121 @@
+.ui.dividing.feed .event{
+  border-bottom: 1px solid rgba(31,31,31, .1);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.ui.dividing.feed .event:last-child{
+  border-bottom: none;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.ui.inverted.segment{
+  color: rgba(255, 255, 255, 1) !important;
+}
+.monitoring.list .item{
+  padding: 1em 0;
+}
+.majeure, 
+.portrait.modal,
+.portrait.modal > .content{
+  background: #ffffff !important;
+}
+.majeure.top.header{
+  height: 70px; display: flex; align-items: center; justify-content: center;
+  /*background: #27806e;*/
+  border-bottom: 2px solid #0072cf !important;
+}
+.portrait.modal > .content > .majeure.top.header{
+  height: 200px; display: flex; align-items: center; justify-content: center;
+  /*background: #27806e;*/
+  font-size: 2em;
+  border-bottom: 2px solid #0072cf !important;
+}
+.landscape.modal > .content > .majeure.top.header{
+  height: 150px; display: flex; align-items: center; justify-content: center;
+  /*background: #27806e;*/
+  font-size: 2em;
+  border-bottom: 2px solid #0072cf !important;
+}
+.majeure.segment{
+ /* border-bottom: none !important;
+  border-right: none !important;
+  border-left: none !important;*/
+}
+.majeure.bottom.header{
+  border-top: 2px solid #0072cf !important;
+  padding: 1.2em 0;
+}
+.majeure.bottom.header .sub.header{
+  font-size: .55em;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #000
+}
+.portrait.modal > .content > .majeure.bottom.header{
+  font-size: 5em;
+}
+.landscape.modal > .content > .majeure.bottom.header{
+  font-size: 5em;
+  padding: .4em 0;
+}
+.monitoring.modal > .content > .majeure.bottom.header .sub.header{
+  font-size: .4em;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #fff
+}
+.majeure > .ui.list > .item{
+  padding: 1.2em 0;
+  font-size: 1em;
+  font-weight: bold;
+  border-top: 1px solid rgba(34,36,38,.15);
+  border-bottom: 1px solid rgba(255,255,255,.1);
+}
+.majeure > .ui.list > .item:before{
+  content: counters(ordered, ".") ". ";
+  color: #fff;
+  opacity: 1;
+}
+.majeure > .ui.list > .item:last-child{
+  border-bottom: none;
+}
+.portrait.modal > .content > .majeure.segment > .statistics .statistic > .value{
+  font-size: 10em !important;
+}
+.portrait.modal > .content > .majeure.segment > .statistics .statistic > .label{
+  font-size: 3em !important;
+}
+.landscape.modal > .content > .majeure.segment > .statistics .statistic > .value{
+  font-size: 8em !important;
+}
+.landscape.modal > .content > .majeure.segment > .statistics .statistic > .label{
+  font-size: 2em !important;
+}
+.portrait.modal > .content > .majeure > .ui.list > .item{
+  padding: 2.5em 1em;
+  font-size: 2.5em;
+}
+.landscape.modal > .content > .majeure > .ui.list > .item{
+  padding: 1.5em 1em;
+  font-size: 2em;
+}
+.monitoring.modal > .content > .majeure > .ui.list > .item .content{
+  margin-left: 20px;
+}
+
+.fluid.content{
+  width: 100%;
+}
+.progress{
+  margin: 0 !important;
+  top: 0 !important;
+}
+.right.floated.text{
+  float: right;
+}
+/*.extra.text{
+  text-align: justify;
+}
+.read-more{
+  float: right;
+  }*/
