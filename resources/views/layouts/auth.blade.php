@@ -134,7 +134,9 @@
             fetch('/reload-captcha')
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('captcha-image').src = data.captcha;
+                    // Pastikan untuk menghapus double quotes ekstra dari URL gambar
+                    var captchaSrc = data.captcha.replace(/"/g, '');
+                    document.getElementById('captcha-image').src = captchaSrc;
                 });
         };
     </script>
