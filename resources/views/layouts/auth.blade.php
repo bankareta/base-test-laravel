@@ -130,17 +130,6 @@
                 $('#showerrorie').css('display','none');
             }
         });
-        document.getElementById('reload-captcha').onclick = function() {
-            fetch('/reload-captcha')
-                .then(response => response.json())
-                .then(data => {
-                    var tempElement = document.createElement('div');
-                    tempElement.innerHTML = data.captcha;
-                    var imgElement = tempElement.querySelector('img');
-                    var captchaSrc = imgElement.getAttribute('src');
-                    document.getElementById('captcha-image').src = captchaSrc;
-                });
-        };
     </script>
 </body>
 </html>
