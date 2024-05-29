@@ -136,7 +136,7 @@
                 .then(data => {
                     // Menghapus tanda kutip ganda dari tepi luar URL
                     var captchaSrc = data.captcha.replace(/^"|"$/g, '');
-                    document.getElementById('captcha-image').src = captchaSrc;
+                    document.getElementById('captcha-image').src = captchaSrc.src;
                 });
         };
     </script>
